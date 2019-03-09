@@ -87,7 +87,7 @@ public class Integers {
         int number = numberToCheck;
         double doubleLog = Math.log10(number) / Math.log10(2);
         int intLog = (int) doubleLog;
-        if (doubleLog == intLog)
+        if (Double.compare(doubleLog, intLog) == 0)
             return true;
         return false;
     }
@@ -119,7 +119,7 @@ public class Integers {
         singleDigits.put(14,"fourteen");
         singleDigits.put(15,"fifteen");
         singleDigits.put(16,"sixteen");
-        singleDigits.put(17,"seventee");
+        singleDigits.put(17,"seventeen");
         singleDigits.put(18,"eighteen");
         singleDigits.put(19,"nineteen");
     }
@@ -129,12 +129,12 @@ public class Integers {
         multiDigits.put(10,"ten");
         multiDigits.put(20,"twenty");
         multiDigits.put(30,"thirty");
-        multiDigits.put(40,"fourty");
+        multiDigits.put(40,"forty");
         multiDigits.put(50,"fifty");
         multiDigits.put(60,"sixty");
         multiDigits.put(70,"seventy");
         multiDigits.put(80,"eighty");
-        multiDigits.put(90,"ninty");
+        multiDigits.put(90,"ninety");
     }
 
     private static final int BILLION = 1000000000;

@@ -12,6 +12,38 @@ import com.jwetherell.algorithms.graph.BreadthFirstTraversal;
 
 public class BreadthFirstTraversalTest {
 
+    private static final byte[][]                       adjacencyMatrix = new byte[4][4];
+    static {
+        // v0
+        adjacencyMatrix[0][1] = 1;
+        adjacencyMatrix[0][2] = 1;
+        // v1
+        adjacencyMatrix[1][2] = 1;
+        // v2
+        adjacencyMatrix[2][0] = 1;
+        adjacencyMatrix[2][3] = 1;
+        // v3
+        adjacencyMatrix[3][3] = 1;
+    }
+
+    @Test
+    public void test0() {
+        final int[] result = BreadthFirstTraversal.breadthFirstTraversal(4, adjacencyMatrix, 2);
+        Assert.assertTrue(result[0]==2);
+        Assert.assertTrue(result[1]==0);
+        Assert.assertTrue(result[2]==3);
+        Assert.assertTrue(result[3]==1);
+    }
+
+    @Test
+    public void test1() {
+        final int[] result = BreadthFirstTraversal.breadthFirstTraversal(4, adjacencyMatrix, 0);
+        Assert.assertTrue(result[0]==0);
+        Assert.assertTrue(result[1]==1);
+        Assert.assertTrue(result[2]==2);
+        Assert.assertTrue(result[3]==3);
+    }
+
     private static final List<Graph.Vertex<Integer>>    vertices    = new ArrayList<Graph.Vertex<Integer>>();
     private static final List<Graph.Edge<Integer>>      edges       = new ArrayList<Graph.Edge<Integer>>();
 
@@ -37,7 +69,7 @@ public class BreadthFirstTraversalTest {
     private static final Graph<Integer>                 graph       = new Graph<Integer>(Graph.TYPE.DIRECTED, vertices, edges);
 
     @Test
-    public void test1() {
+    public void test2() {
         final Graph.Vertex<Integer>[] result = BreadthFirstTraversal.breadthFirstTraversal(graph, v2);
         Assert.assertTrue(result[0].getValue()==2);
         Assert.assertTrue(result[1].getValue()==0);
@@ -46,7 +78,7 @@ public class BreadthFirstTraversalTest {
     }
 
     @Test
-    public void test2() {
+    public void test3() {
         final Graph.Vertex<Integer>[] result = BreadthFirstTraversal.breadthFirstTraversal(graph, v0);
         Assert.assertTrue(result[0].getValue()==0);
         Assert.assertTrue(result[1].getValue()==1);
